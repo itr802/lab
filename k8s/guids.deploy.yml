@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: guids-deploy
+  labels:
+    app: guids
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: guids
+    spec:
+      containers:
+      - name: guids
+        image: alexellis2/guid-service:latest
+        ports:
+        - containerPort: 9000
+
